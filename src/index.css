@@ -5,9 +5,27 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding: 25px; 
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#header {
+  margin-top: 25px; 
+  margin-left: 25px; 
+}
+
+#searchBar {
+  padding: 25px; 
+}
+
+#movieCard {
+  padding: 25px; 
+}
+
+#nominationsCard {
+  padding: 25px; 
 }
