@@ -13,20 +13,15 @@ const App = () => {
   const searchChange = (searchedWord) => {
     fetch(`http://www.omdbapi.com/?s=${searchedWord}&apikey=${OMDBAPIKEY}`)
         .then((response) => response.json())
-        .then((omdData) => {
-          console.log(omdData.Search)
-            const transformedData =  omdData.Search?.map((movieObj) => {
+        .then((omdbData) => {
+            const transformedData =  omdbData.Search?.map((movieObj) => {
               return {
                 title: movieObj.Title, 
-                yearOfRelease: movieObj.Released
+                yearOfRelease: movieObj.Year
               }
             })
-            
-            if (omdData.Title?.toLowerCase().includes(searchedWord.toLowerCase())) {
-              // const filteredMovies = movies.filter((movie) => {
-              //   return movie.title?.toLowerCase().includes(searchedWord.toLowerCase())
-              // })
-              setMovies([...movies, transformedData])
+            if (omdbData.Search) {
+              setMovies(transformedData) 
             }
         });
       }
@@ -48,8 +43,6 @@ const App = () => {
       })
   }
 
-  console.log('movies', movies)
-
   const createNomination = (newMovieObj) => {
     return fetch(`${apiUrl}/nominations`, {
       method: "POST",
@@ -64,8 +57,6 @@ const App = () => {
     }).then((response) => response.json())
       .then((nominationData) => setNominations([...nominations, nominationData]))
   };
-  
-console.log('nominations', nominations)
 
   const deleteNomination = (title, yearOfRelease) => {
     // const toDeleteNomination = nominations.find(
@@ -78,7 +69,7 @@ console.log('nominations', nominations)
 
   return (
     <div>
-      <MoviesPage movies={movies} onSearchChange={searchChange} onNominate={createMovie}/>
+      <MoviesPage movies={movies} onSearchChange={searchChange} onNominate={createMovie} />
       <NominationsPage nominations={nominations} onDelete={deleteNomination} />
       
     </div>
@@ -87,8 +78,7 @@ console.log('nominations', nominations)
 
 export default App;
 
-//should I be getting more than one search result? 
+
 //change Search Results for searchedWord instead of title
-//reformat year released
 //move nominations up to right of movie cards
 //finish 4-6

@@ -1,7 +1,7 @@
 import React from "react";
 import MovieCard from "./MovieCard";
 
-const MoviesContainer = ({ movies, onNominate }) => {
+const MoviesContainer = ({ movies, onNominate, searchedWord }) => {
   const movieCards = movies.map((movie) => {
     return (
       <MovieCard
@@ -13,7 +13,13 @@ const MoviesContainer = ({ movies, onNominate }) => {
     );
   });
 
-  return <div>{movieCards}</div>;
+  return (
+    <div>
+      <h3 className="ui header" id="header">Search Results For "{searchedWord}"</h3>
+      <div>{movieCards}</div>
+    
+    </div>
+  )  
 };
 
 export default MoviesContainer;

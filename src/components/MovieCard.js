@@ -6,7 +6,6 @@ const MovieCard = ({ title, yearOfRelease, onNominate }) => {
     <div className="ui cards" id="movieCard">
       <div className="card">
         <div className="content">
-        <div className="header">Search Results For {title}</div>
           <div className="description">Title: {title}</div>
             <div className="description">Released: {yearOfRelease}</div>
           </div>
