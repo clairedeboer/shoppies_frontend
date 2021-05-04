@@ -16,6 +16,7 @@ const App = () => {
         .then((omdbData) => {
             const transformedData =  omdbData.Search?.map((movieObj) => {
               return {
+                id: movieObj.imdbID + movieObj.Year, 
                 title: movieObj.Title, 
                 yearOfRelease: movieObj.Year
               }

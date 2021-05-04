@@ -15,7 +15,7 @@ const MoviesPage = ({ movies, onSearchChange, onNominate }) => {
       <h1 className="ui header" id="header">
         The Shoppies
       </h1>
-      <SearchBar onSearchChange={handleSearch} />
+      <SearchBar onSearchChange={handleSearch} searchedWord={searchedWord} />
       <MoviesContainer
         movies={movies}
         onNominate={onNominate}
