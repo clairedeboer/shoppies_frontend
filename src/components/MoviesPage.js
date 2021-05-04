@@ -1,13 +1,13 @@
 import React from "react"; 
-import SearchBar from "./SearchBar.js";
-import MoviesContainer from "./MoviesContainer.js"
+import SearchBar from "./SearchBar";
+import MoviesContainer from "./MoviesContainer"
 
-const MoviesPage = ({ movie, onSearchChange}) => {
+const MoviesPage = ({ movies, onSearchChange, onNominate }) => {
   return (
     <div>
       <h1 className="ui header" id="header">The Shoppies</h1>
       <SearchBar onSearchChange={onSearchChange} />
-      <MoviesContainer movie={movie} />
+      <MoviesContainer movies={movies} onNominate={onNominate}/>
       
     </div>
   );

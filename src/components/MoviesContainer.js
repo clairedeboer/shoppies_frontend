@@ -1,20 +1,19 @@
-import React from "react"; 
-import MovieCard from "./MovieCard.js";
+import React from "react";
+import MovieCard from "./MovieCard";
 
-const MoviesContainer = ({ movie }) => {
-  
-  const movieCard = <MovieCard 
-    key={movie.id}
-    title={movie.title}
-    yearOfRelease={movie.yearOfRelease}
+const MoviesContainer = ({ movies, onNominate }) => {
+  const movieCards = movies.map((movie) => {
+    return (
+      <MovieCard
+        key={movie.id}
+        title={movie.title}
+        yearOfRelease={movie.yearOfRelease}
+        onNominate={onNominate}
+      />
+    );
+  });
 
-/>
-
-  return (
-    <div>
-      {movieCard}
-    </div>
-  );
-}
+  return <div>{movieCards}</div>;
+};
 
 export default MoviesContainer;

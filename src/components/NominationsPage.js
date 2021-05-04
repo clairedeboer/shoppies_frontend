@@ -1,10 +1,10 @@
 import React from "react"; 
-import NominationsContainer from "./NominationsContainer.js"
+import NominationsContainer from "./NominationsContainer"
 
-const NominationsPage = () => {
+const NominationsPage = ({ nominations, onDelete }) => {
   return (
     <div>
-      <NominationsContainer />
+      <NominationsContainer nominations={nominations} onDelete={onDelete} />
       
     </div>
   );
