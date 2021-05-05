@@ -15,11 +15,12 @@ const MoviesContainer = ({ movies, onNominate, searchedWord }) => {
 
   return (
     <div>
-      <h3 className="ui header" id="header">Search Results For "{searchedWord}"</h3>
+      <h3 className="ui header" id="header">
+        Search Results For "{searchedWord}"
+      </h3>
       <div>{movieCards}</div>
-    
     </div>
-  )  
+  );
 };
 
 export default MoviesContainer;

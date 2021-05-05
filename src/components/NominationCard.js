@@ -1,15 +1,15 @@
 import React from "react"; 
 
-const NominationCard = ({ title, yearOfRelease, onDelete }) => {
+const NominationCard = ({ title, yearOfRelease, id, onDelete }) => {
+  
   return (
     <div className="ui cards" id="nominationsCard">
       <div className="card">
         <div className="content">
-        <div className="header">Nominations</div>
-          <div className="description">Title: {title} </div>
-            <div className="description">Released: {yearOfRelease} </div>
+          <div className="description">Title: {title}</div>
+            <div className="description">Released: {yearOfRelease}</div>
           </div>
-        <div className="ui bottom attached button" onClick={(event)=>onDelete(title, yearOfRelease)}>
+        <div className="ui bottom attached button" onClick={(event)=>onDelete(id)}>
           <i className="minus icon"></i>
           Remove
         </div>
