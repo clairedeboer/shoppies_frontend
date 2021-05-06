@@ -70,6 +70,7 @@ const App = () => {
   };
 
   const deleteNomination = (id) => {
+    //what about changing nomination status to false? 
     // const toDeleteNomination = nominations.find(
     //   (nomination) => nomination.movie_id === movieId
     // );
@@ -89,6 +90,7 @@ const App = () => {
         movies={movies}
         onSearchChange={searchChange}
         onNominate={createMovie}
+        nominations={nominations}
       />
       <NominationsPage nominations={nominations} onDelete={deleteNomination} />
     </div>
@@ -98,4 +100,5 @@ const App = () => {
 export default App;
 
 //move nominations up to right of movie cards
-//finish 4-6
+//fix nominate and remove to work without refresh
+//host? 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import SearchBar from "./SearchBar";
 import MoviesContainer from "./MoviesContainer";
 
-const MoviesPage = ({ movies, onSearchChange, onNominate }) => {
+const MoviesPage = ({ movies, onSearchChange, onNominate, nominations }) => {
   const [searchedWord, setSearchedWord] = useState("");
 
   const handleSearch = (searchTerm) => {
@@ -20,6 +20,7 @@ const MoviesPage = ({ movies, onSearchChange, onNominate }) => {
         movies={movies}
         onNominate={onNominate}
         searchedWord={searchedWord}
+        nominations={nominations}
       />
     </div>
   );
