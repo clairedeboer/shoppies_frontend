@@ -1,11 +1,11 @@
 import React from "react"; 
 import NominationsContainer from "./NominationsContainer"
 
-const NominationsPage = ({ nominations, onDelete }) => {
+const NominationsPage = ({ nominatedMovies, onDelete }) => {
   
   return (
-    <div>
-      <NominationsContainer nominations={nominations} onDelete={onDelete} />
+    <div id="nominationsPage">
+      <NominationsContainer nominatedMovies={nominatedMovies} onDelete={onDelete} />
       
     </div>
   );

@@ -1,26 +1,15 @@
-import React, { useState } from "react";
-import SearchBar from "./SearchBar";
+import React from "react"; 
 import MoviesContainer from "./MoviesContainer";
 
-const MoviesPage = ({ movies, onSearchChange, onNominate, nominations }) => {
-  const [searchedWord, setSearchedWord] = useState("");
-
-  const handleSearch = (searchTerm) => {
-    setSearchedWord(searchTerm);
-    onSearchChange(searchTerm);
-  };
-
+const MoviesPage = ({ movies, searchedWord, onNominate, nominatedMovies }) => {
+  
   return (
-    <div>
-      <h1 className="ui header" id="header">
-        The Shoppies
-      </h1>
-      <SearchBar onSearchChange={handleSearch} searchedWord={searchedWord} />
+    <div id="moviesPage">
       <MoviesContainer
         movies={movies}
         onNominate={onNominate}
         searchedWord={searchedWord}
-        nominations={nominations}
+        nominatedMovies={nominatedMovies}
       />
     </div>
   );

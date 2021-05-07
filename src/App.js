@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import SearchBar from "./components/SearchBar";
 import MoviesPage from "./components/MoviesPage";
 import NominationsPage from "./components/NominationsPage";
 
@@ -8,10 +9,12 @@ const apiUrl = "http://localhost:3000";
 
 const App = () => {
   const [movies, setMovies] = useState([]);
-  const [nominations, setNominations] = useState([]);
+  const [nominatedMovies, setNominatedMovies] = useState([]);
+  const [searchedWord, setSearchedWord] = useState("");
 
-  const searchChange = (searchedWord) => {
-    fetch(`http://www.omdbapi.com/?s=${searchedWord}&apikey=${OMDBAPIKEY}`)
+  const searchChange = (searchTerm) => {
+    setSearchedWord(searchTerm);
+    fetch(`http://www.omdbapi.com/?s=${searchTerm}&apikey=${OMDBAPIKEY}`)
       .then((response) => response.json())
       .then((omdbData) => {
         const transformedData = omdbData.Search?.map((movieObj) => {
@@ -30,7 +33,7 @@ const App = () => {
   useEffect(() => {
     fetch(`${apiUrl}/nominatedMovies`)
       .then((response) => response.json())
-      .then((nominatedMovieData) => setNominations(nominatedMovieData));
+      .then((nominatedMovieData) => setNominatedMovies(nominatedMovieData));
   }, []);
 
   const createMovie = (title, yearOfRelease) => {
@@ -64,41 +67,44 @@ const App = () => {
       }),
     })
       .then((response) => response.json())
-      .then((nominationData) =>
-        setNominations([...nominations, nominationData])
-      );
+      .then((nominatedMovieData) => {
+        setNominatedMovies([...nominatedMovies, newMovieObj]);
+      });
   };
 
   const deleteNomination = (id) => {
-    //what about changing nomination status to false? 
-    // const toDeleteNomination = nominations.find(
-    //   (nomination) => nomination.movie_id === movieId
-    // );
     fetch(`${apiUrl}/nominations/${id}`, {
       method: "DELETE",
-    }).then((nominationsData) => {
-      setNominations([
-        ...nominations,
-        nominations.filter((nomination) => nomination.id !== id),
-      ]);
+    }).then((nominatedMoviesData) => {
+      setNominatedMovies(nominatedMovies.filter((nominatedMovie) => nominatedMovie.id !== id));
     });
   };
 
   return (
     <div>
-      <MoviesPage
-        movies={movies}
-        onSearchChange={searchChange}
-        onNominate={createMovie}
-        nominations={nominations}
-      />
-      <NominationsPage nominations={nominations} onDelete={deleteNomination} />
+      <div>
+        <SearchBar onSearchChange={searchChange} searchedWord={searchedWord} />
+      </div>
+      <div className="ui two column grid">
+        <MoviesPage
+          movies={movies}
+          onNominate={createMovie}
+          nominatedMovies={nominatedMovies}
+          searchedWord={searchedWord}
+        />
+        <NominationsPage
+          nominatedMovies={nominatedMovies}
+          onDelete={deleteNomination}
+        />
+      </div>
     </div>
   );
 };
 
 export default App;
 
-//move nominations up to right of movie cards
-//fix nominate and remove to work without refresh
-//host? 
+//isn't clearing searched movies when you backspace, only on refresh
+//Readme
+//decided to use backend because I wanted data to persist
+//URL that website is deployed to
+//used React

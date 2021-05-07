@@ -29,3 +29,15 @@ code {
 #nominationsCard {
   padding: 25px; 
 }
+
+#moviesPage {
+  width: 50%; 
+}
+
+#nominationsPage {
+  width: 50%; 
+}
+
+.title {
+  height: 50px !important; 
+}

@@ -1,19 +1,19 @@
 import React from "react";
 import NominationCard from "./NominationCard";
 
-const NominationsContainer = ({ nominations, onDelete }) => {
-  if (nominations.length >= 5) {
+const NominationsContainer = ({ nominatedMovies, onDelete }) => {
+  if (nominatedMovies.length >= 5) {
 
   }
 
-  const nominationCards = nominations.map((nomination) => {
+  const nominationCards = nominatedMovies.map((nominatedMovie) => {
     return (
       <NominationCard
-        key={nomination.id}
-        id={nomination.id}
-        title={nomination.title}
-        yearOfRelease={nomination.year_of_release}
-        movieId={nomination.movie_id}
+        key={nominatedMovie.id}
+        id={nominatedMovie.id}
+        title={nominatedMovie.title}
+        yearOfRelease={nominatedMovie.year_of_release}
+        movieId={nominatedMovie.movie_id}
         onDelete={onDelete}
       />
     ); 
@@ -21,12 +21,14 @@ const NominationsContainer = ({ nominations, onDelete }) => {
 
   return (
     <div>
-      {nominations.length > 0 && (<h3 className="ui header" id="header">
+      <div>
+      {nominatedMovies.length > 0 && (<h3 className="ui header title" id="header">
         Nominations
       </h3>)}
-      {nominations.length >= 5 && (<h4 className="ui header" id="header">
+      {nominatedMovies.length >= 5 && (<h4 className="ui header" id="header">
         You've nominated your 5 movies
       </h4>)}
+      </div>
       <div>{nominationCards}</div>
     </div>
   );
