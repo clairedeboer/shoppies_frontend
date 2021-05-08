@@ -4,8 +4,8 @@ import SearchBar from "./components/SearchBar";
 import MoviesPage from "./components/MoviesPage";
 import NominationsPage from "./components/NominationsPage";
 
-const OMDBAPIKEY = "8a111c74";
-const apiUrl = "http://localhost:3000";
+const OMDBAPIKEY = process.env.REACT_APP_GOOGLEBOOKSAPIKEY || "8a111c74";
+const apiUrl = process.env.REACT_APP_APIURL || "http://localhost:3000";
 
 const App = () => {
   const [movies, setMovies] = useState([]);
@@ -31,7 +31,7 @@ const App = () => {
             setMovies([]);
           }
         });
-      }
+    }
   };
 
   useEffect(() => {
@@ -108,8 +108,3 @@ const App = () => {
 };
 
 export default App;
-
-//Readme
-//decided to use backend because I wanted data to persist
-//URL that website is deployed to
-//used React

@@ -1,11 +1,20 @@
 import React from "react";
 import MovieCard from "./MovieCard";
 
-const MoviesContainer = ({ movies, onNominate, searchedWord, nominatedMovies }) => {
+const MoviesContainer = ({
+  movies,
+  onNominate,
+  searchedWord,
+  nominatedMovies,
+}) => {
   const moviesWithNominationStatus = movies.map((movie) => {
-    const nominated = nominatedMovies.find((nominatedMovie) => nominatedMovie.title === movie.title && nominatedMovie.year_of_release === movie.yearOfRelease)
-    return {...movie, nominatedStatus: !!nominated}
-  })
+    const nominated = nominatedMovies.find(
+      (nominatedMovie) =>
+        nominatedMovie.title === movie.title &&
+        nominatedMovie.year_of_release === movie.yearOfRelease
+    );
+    return { ...movie, nominatedStatus: !!nominated };
+  });
 
   const movieCards = moviesWithNominationStatus.map((movie) => {
     return (
@@ -22,9 +31,11 @@ const MoviesContainer = ({ movies, onNominate, searchedWord, nominatedMovies }) 
 
   return (
     <div>
-      {searchedWord && (<h3 className="ui header" id="title">
-        Search Results For "{searchedWord}"
-      </h3>)}
+      {searchedWord && (
+        <h3 className="ui header" id="title">
+          Search Results For "{searchedWord}"
+        </h3>
+      )}
       <div>{movieCards}</div>
     </div>
   );
