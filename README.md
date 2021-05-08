@@ -1,10 +1,10 @@
 # Shoppies Frontend
 
-This application was built in React and allows users to search OMDB's API and nominate movies. There is a [Rails backend] (https://github.com/clairedeboer/shoppies_backend) that allows a user to save their nominations list if they leave the page. I used Semantic UI for styling. 
+This application was built in React and allows users to search OMDB's API and nominate movies. There is a [Rails backend](https://github.com/clairedeboer/shoppies_backend) that allows a user to save their nominations list if they leave the page. I used Semantic UI for styling. 
 
 The component tree is outlined below
 
-![React component tree hierarchy](/relative/path/to/img.jpg?raw=true "React Hierarchy")
+![React component tree hierarchy](/public/component_tree.png "React Hierarchy")
 
 ## Prerequisites
 
