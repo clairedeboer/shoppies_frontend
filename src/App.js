@@ -14,20 +14,27 @@ const App = () => {
 
   const searchChange = (searchTerm) => {
     setSearchedWord(searchTerm);
-    fetch(`http://www.omdbapi.com/?s=${searchTerm}&apikey=${OMDBAPIKEY}`)
-      .then((response) => response.json())
-      .then((omdbData) => {
-        const transformedData = omdbData.Search?.map((movieObj) => {
-          return {
-            id: movieObj.imdbID + movieObj.Year,
-            title: movieObj.Title,
-            yearOfRelease: movieObj.Year,
-          };
+    if (searchTerm) {
+      fetch(`http://www.omdbapi.com/?s=${searchTerm}&apikey=${OMDBAPIKEY}`)
+        .then((response) => response.json())
+        .then((omdbData) => {
+          const transformedData = omdbData.Search?.map((movieObj, index) => {
+            return {
+              id: movieObj.imdbID + index,
+              title: movieObj.Title,
+              yearOfRelease: movieObj.Year,
+            };
+          });
+          if (omdbData.Search) {
+            setMovies(transformedData);
+          } else {
+            setMovies([]);
+          }
         });
-        if (omdbData.Search) {
-          setMovies(transformedData);
-        }
-      });
+      }
+    // } else {
+    //   setMovies([]);
+    // }
   };
 
   useEffect(() => {
@@ -76,7 +83,9 @@ const App = () => {
     fetch(`${apiUrl}/nominations/${id}`, {
       method: "DELETE",
     }).then((nominatedMoviesData) => {
-      setNominatedMovies(nominatedMovies.filter((nominatedMovie) => nominatedMovie.id !== id));
+      setNominatedMovies(
+        nominatedMovies.filter((nominatedMovie) => nominatedMovie.id !== id)
+      );
     });
   };
 

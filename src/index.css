@@ -13,7 +13,7 @@ code {
     monospace;
 }
 
-#header {
+#title {
   margin-top: 25px; 
   margin-left: 25px; 
 }
@@ -22,11 +22,11 @@ code {
   padding: 25px; 
 }
 
-#movieCard {
+.movie-card {
   padding: 25px; 
 }
 
-#nominationsCard {
+.nomination-card {
   padding: 25px; 
 }
 
@@ -36,8 +36,4 @@ code {
 
 #nominationsPage {
   width: 50%; 
-}
-
-.title {
-  height: 50px !important; 
 }

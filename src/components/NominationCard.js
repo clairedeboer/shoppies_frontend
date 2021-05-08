@@ -3,7 +3,7 @@ import React from "react";
 const NominationCard = ({ title, yearOfRelease, id, onDelete }) => {
   
   return (
-    <div className="ui cards" id="nominationsCard">
+    <div className="ui cards nomination-card">
       <div className="card">
         <div className="content">
           <div className="description">Title: {title}</div>

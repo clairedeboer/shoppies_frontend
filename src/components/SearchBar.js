@@ -3,7 +3,7 @@ import React from "react";
 const SearchBar = ({ onSearchChange, searchedWord }) => {
   return (
     <div>
-      <h1 className="ui header" id="header">
+      <h1 className="ui header" id="title">
         The Shoppies
       </h1>
       <div className="ui action fluid input" id="searchBar">

@@ -3,7 +3,7 @@ import React from "react";
 const MovieCard = ({ title, yearOfRelease, nominatedStatus, onNominate }) => {
     
   return (
-    <div className="ui cards" id="movieCard">
+    <div className="ui cards movie-card">
       <div className="card">
         <div className="content">
           <div className="description">Title: {title}</div>
