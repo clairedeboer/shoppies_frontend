@@ -4,7 +4,7 @@ import SearchBar from "./components/SearchBar";
 import MoviesPage from "./components/MoviesPage";
 import NominationsPage from "./components/NominationsPage";
 
-const OMDBAPIKEY = process.env.REACT_APP_GOOGLEBOOKSAPIKEY || "8a111c74";
+const OMDBAPIKEY = process.env.REACT_APP_OMDBAPIKEY; 
 const apiUrl = process.env.REACT_APP_APIURL || "http://localhost:3000";
 
 const App = () => {

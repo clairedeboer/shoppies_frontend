@@ -34,7 +34,7 @@ To use Shoppies, follow these steps:
 
 Shoppies is deployed via Netlify at: 
 
-ADD HERE
+https://zen-bell-153a5b.netlify.app/
 
 ## Contact
 
