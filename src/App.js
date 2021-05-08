@@ -15,7 +15,7 @@ const App = () => {
   const searchChange = (searchTerm) => {
     setSearchedWord(searchTerm);
     if (searchTerm) {
-      fetch(`http://www.omdbapi.com/?s=${searchTerm}&apikey=${OMDBAPIKEY}`)
+      fetch(`https://www.omdbapi.com/?s=${searchTerm}&apikey=${OMDBAPIKEY}`)
         .then((response) => response.json())
         .then((omdbData) => {
           const transformedData = omdbData.Search?.map((movieObj, index) => {
