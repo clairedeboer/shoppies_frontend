@@ -24,7 +24,7 @@ const NominationsContainer = ({ nominatedMovies, onDelete }) => {
       <h3 className="ui header" id="title">
         Nominations
         <span id="span">
-          {nominatedMovies.length >= 5 && " You've nominated your 5 movies"}
+          {nominatedMovies.length >= 5 && ": You've nominated your 5 movies"}
         </span>
       </h3>
       <div>{nominationCards}</div>

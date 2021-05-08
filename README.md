@@ -2,6 +2,10 @@
 
 This application was built in React and allows users to search OMDB's API and nominate movies. There is a [Rails backend](https://github.com/clairedeboer/shoppies_backend) that allows a user to save their nominations list if they leave the page. I used Semantic UI for styling. 
 
+Shoppies is deployed via Netlify at: 
+
+https://zen-bell-153a5b.netlify.app/
+
 The component tree is outlined below
 
 ![React component tree hierarchy](/public/component_tree.png "React Hierarchy")
@@ -22,6 +26,10 @@ yarn install
 yarn start
 ```
 
+## Deployment
+
+This app uses Continuous Delivery to deploy to Netlify on every commit to the main branch
+
 ## Using Shoppies
 
 To use Shoppies, follow these steps: 
@@ -29,12 +37,6 @@ To use Shoppies, follow these steps:
 * Search movies by title
 * Nominate up to 5 movies
 * Remove movies from your nominations list
-
-## Deployment
-
-Shoppies is deployed via Netlify at: 
-
-https://zen-bell-153a5b.netlify.app/
 
 ## Contact
 
