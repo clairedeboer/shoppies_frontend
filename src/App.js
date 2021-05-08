@@ -32,9 +32,6 @@ const App = () => {
           }
         });
       }
-    // } else {
-    //   setMovies([]);
-    // }
   };
 
   useEffect(() => {
@@ -112,7 +109,6 @@ const App = () => {
 
 export default App;
 
-//isn't clearing searched movies when you backspace, only on refresh
 //Readme
 //decided to use backend because I wanted data to persist
 //URL that website is deployed to
