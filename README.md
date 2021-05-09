@@ -1,6 +1,6 @@
 # Shoppies Frontend
 
-This application was built in React and allows users to search OMDB's API and nominate movies. There is a [Rails backend](https://github.com/clairedeboer/shoppies_backend) that allows a user to save their nominations list if they leave the page. I used Semantic UI for styling. 
+This application was built in React and allows users to search OMDB's API and nominate movies. I created a Rails backend [Rails backend](https://github.com/clairedeboer/shoppies_backend) that allows a user to save their nominations list if they leave the page. I used Semantic UI for styling. 
 
 Shoppies is deployed via Netlify at: 
 
